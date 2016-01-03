@@ -1,4 +1,6 @@
 language: java
+before_scripe:
+  - git clone https://github.com/sunyifan112358/pvis.git -b Develop
 script: mvn test
 after_success:
   - mvn clean test jacoco:report coveralls:report
