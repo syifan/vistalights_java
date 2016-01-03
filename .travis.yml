@@ -1,6 +1,6 @@
 language: java
 before_install:
-  - wget https://github.com/sunyifan112358/pvis/releases/download/0.0.1/pvis-0.0.1.jar -p library
+  - wget -p library/ https://github.com/sunyifan112358/pvis/releases/download/0.0.1/pvis-0.0.1.jar
   - mvn validate
 script: mvn test
 after_success:
