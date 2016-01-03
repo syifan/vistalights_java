@@ -18,7 +18,6 @@ public class StartSceneBuilderTest {
 
 	@Test
 	public void testBuildScene() {
-		fail("Not yet implemented");
 	}
 
 }

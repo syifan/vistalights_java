@@ -24,14 +24,7 @@
     <dependency>
     	<groupId>com.logistics.pvis</groupId>
     	<artifactId>pvis</artifactId>
-    	<version>0.1</version>
-    </dependency>
-    <dependency>
-    	<groupId>processing</groupId>
-    	<artifactId>processing.core</artifactId>
-    	<version>2.2.1</version>
-    	<scope>system</scope>
-    	<systemPath>${project.basedir}/library/core.jar</systemPath>
+    	<version>0.0.1</version>
     </dependency>
   </dependencies>
   
@@ -82,6 +75,25 @@
 										<ignore />
 									</action>
 								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-install-plugin
+										</artifactId>
+										<versionRange>
+											[2.5.1,)
+										</versionRange>
+										<goals>
+											<goal>install-file</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
@@ -91,6 +103,27 @@
 
 		<!-- BUILD PLUGINS -->
 		<plugins>
+			<plugin>
+			   <groupId>org.apache.maven.plugins</groupId>
+			   <artifactId>maven-install-plugin</artifactId>
+			   <version>2.5.1</version>
+			   <configuration>
+			      <groupId>com.logistics.pvis</groupId>
+			      <artifactId>pvis</artifactId>
+			      <version>0.0.1</version>
+			      <packaging>jar</packaging>
+			      <file>${basedir}/library/pvis-0.0.1.jar</file>
+			   </configuration>
+			   <executions>
+			      <execution>
+			         <id>install-jar-lib</id>
+			         <goals>
+			            <goal>install-file</goal>
+			         </goals>
+			         <phase>validate</phase>
+			      </execution>
+			   </executions>
+			</plugin>
 			<plugin>
 				<!-- CODE COVERAGE -->
 				<groupId>org.jacoco</groupId>
